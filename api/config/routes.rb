@@ -123,4 +123,4 @@ Spree::Core::Engine.add_routes do
       "/api/v1/#{params[:path]}?#{request.query_string}"
     }, via: [:get, :post, :put, :patch, :delete]
   end
-end
+end if Spree::Config.api_enabled
