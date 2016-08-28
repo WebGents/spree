@@ -35,11 +35,17 @@ Spree.ready ($) ->
             opt.prop 'selected', true if selected is state.id
             stateSelect.append opt
 
+          if statesRequired
+            stateSelect.addClass('required')
+            stateSpanRequired.show()
+          else
+            stateSelect.removeClass('required')
+            stateSpanRequired.hide()
+            statePara.find('label.error').hide()
+
           stateSelect.prop('disabled', false).show()
           stateInput.hide().prop 'disabled', true
           statePara.show()
-          stateSpanRequired.show()
-          stateSelect.addClass('required') if statesRequired
           stateSelect.removeClass('hidden')
           stateInput.removeClass('required')
         else
